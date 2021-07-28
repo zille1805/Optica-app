@@ -1,9 +1,10 @@
 
+import {Button} from "react-bootstrap"
 
-export default function Button (props){
+export default function Boton (props){
     return(
         <>
-        <Button ></Button>
+        <Button variant="primary"></Button>{' '}
         </>
 
     )
