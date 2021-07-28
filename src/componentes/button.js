@@ -1,7 +1,8 @@
 
 import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function Boton (props){
+export default function button (props){
     return(
         <>
         <Button variant="primary"></Button>{' '}

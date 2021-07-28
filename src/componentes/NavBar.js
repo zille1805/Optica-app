@@ -1,14 +1,14 @@
 
-import Button from './button'
+import button from './button'
 
 
 export default function NavBar(){
     return(
         <>
-        <Button text= "Lentes con Marcos" />
-        <Button text= "Lentes de contactos"/>
-        <Button text= "Otros" />
-        <Button text= "Ayuda"/>
+        <button >Lentes con Marcos</button>
+        <button >Lentes de contactos</button>
+        <button >Otros</button>
+        <button >Ayuda</button>
         </>
     )
 }
