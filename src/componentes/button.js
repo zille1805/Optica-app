@@ -1,5 +1,5 @@
 
-import {Button} from "react-bootstrap"
+import Button from 'react-bootstrap/Button'
 
 export default function Boton (props){
     return(
