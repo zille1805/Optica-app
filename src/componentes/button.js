@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export default function button (props){
     return(
         <>
-        <Button variant="primary"></Button>{' '}
+        <Button variant="primary">hola</Button>{'    '}
         </>
 
     )

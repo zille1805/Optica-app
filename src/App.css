@@ -1,3 +1,20 @@
-.Button2{
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-top: 200px;
+  margin-left: 60px;
+  margin-right: 60px;     
+}
+
+.button{
   background-color: aquamarine;
+}
+.logo{
+  height: 200px;
+  width: 950px;
 }
