@@ -2,10 +2,10 @@
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function button (props){
+export default function ButtonBoostrap ({Text}){
     return(
         <>
-        <Button variant="primary">hola</Button>{'    '}
+        <Button variant="primary" style={{ height: '50px', width: '200px', backgroundcolor: "aquamarine"}}>{Text}</Button>{'    '}
         </>
 
     )
