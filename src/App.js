@@ -8,7 +8,7 @@ function App() {
   return (
     <body>
     <NavBar />
-    <ItemListConteiner Greeting="Tendremos productos mas adelane"/>
+    <ItemListConteiner Greeting="Tendremos productos mas adelante"/>
     </body>
   )
 }
