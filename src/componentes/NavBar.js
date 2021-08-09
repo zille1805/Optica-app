@@ -1,5 +1,5 @@
 
-import ButtonBoostrap from './button.jsx'
+import ButtonBoostrap from './Button.jsx'
 import Carrito from './CartWidget.jsx'
 import logo from '..//componentes/img/logo.jpeg'
 

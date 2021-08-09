@@ -1,7 +1,7 @@
 import Carrito from '..//componentes/img/carrito.png'
 
 
-export default function carrito(){
+export default function Carrito1(){
     return(
         <button style={{ backgroundColor:"yellow", marginLeft:"800px"}}>
             <h7>¡Revisa tus productos!  </h7>
