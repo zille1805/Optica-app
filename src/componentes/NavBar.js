@@ -12,11 +12,11 @@ export default function NavBar(){
         <Carrito />
         </article>
         <article style={{ marginTop:'10px' }}>
-            <ButtonBoostrap Text= "Lentes de contacto"/>
-            <ButtonBoostrap Text= "Armazones"/>
-            <ButtonBoostrap Text= "Cristales"/>
-            <ButtonBoostrap Text= "Liquidos LC"/>
-            <ButtonBoostrap Text= "Ayuda"/>
+            <ButtonBoostrap Text= "Lentes de contacto" Variant="primary"/>
+            <ButtonBoostrap Text= "Armazones" Variant="success"/>
+            <ButtonBoostrap Text= "Cristales" Variant="warning"/>
+            <ButtonBoostrap Text= "Liquidos LC" Variant="danger"/>
+            <ButtonBoostrap Text= "Ayuda" Variant="info"/>
         </article>
         </>
     )
