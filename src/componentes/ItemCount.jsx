@@ -22,6 +22,7 @@ export default function Conter({InitialValue, Stock}){
         <div>
             <button onClick={()=> increment()}> Sumar </button>
             <button onClick={()=> decrement()}> Restar </button>
+            <button> Add </button>
         </div>
         </div>
     )
