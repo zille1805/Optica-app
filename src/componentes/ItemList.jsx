@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import Item from "./Item.jsx";
-import img0 from "..//componentes/img/marcos/GuuxYellow.jpg"
-import img1 from "..//componentes/img/marcos/mormai.jpg"
-import img2 from "..//componentes/img/marcos/oreiro.jpg"
-import img3 from "..//componentes/img/marcos/reef.jpg"
+import data from "./Objetos1"
 
 export default function ItemList() {
   const [cargar, setCargar] = useState(false);
@@ -11,40 +8,7 @@ export default function ItemList() {
 
   useEffect(() => {
     const tarea = new Promise((resolve, reject) => {
-      const data = [
-        {
-          id: 0,
-          Src: img0,
-          titulo: "Marcos Guux Yellow",
-          precio: 15000,
-          cantidad: 1,
-          stock: 10
-        },
-        {
-          id: 1,
-          Src: img1,
-          titulo: "Marcos MorMai",
-          precio: 7500,
-          cantidad: 1,
-          stock: 10
-        },
-        {
-          id: 2,
-          Src: img2,
-          titulo: "Marcos Oreiro",
-          precio: 12000,
-          cantidad: 1,
-          stock: 10
-        },
-        {
-          id: 3,
-          Src: img3,
-          titulo: "Marcos Reef",
-          precio: 8900,
-          cantidad: 1,
-          stock: 10
-        }
-      ];
+      
       setTimeout(() => resolve(data), 2000);
       setCargar(true);
     });
