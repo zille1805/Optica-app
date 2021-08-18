@@ -8,7 +8,7 @@ export default function Item({ id, titulo, Src, stock, precio }) {
         <p>Stock disponible: {stock}</p>
         <p>precio $ {precio}</p>
         <p>
-        <button onClick={()=>ItemDetailConteiner(id)}>Detail</button>
+        <button onClick={()=>ItemDetailConteiner({id})}>Detail</button>
         </p>
       </>
     )

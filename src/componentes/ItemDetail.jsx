@@ -1,12 +1,39 @@
+import React from 'react'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import NotFound from '../Pages/Error/404'
+import items from '../componentes/Objetos1'
 
 
-export default function IntemDetail ({ titulo, Src, detail, precio }) {
-    return(
-        <body>
-            <img src={Src} style={{ height: '400px', width: '450px' }} />
-            <h1>{titulo}</h1>
-            <div>Delail ....{detail}</div>
-            <p>Precio: {precio}</p>
-        </body>
-    )  
+const getItem = id => {
+    const item = items.find(item => item.id === id);
+    return item;
+};
+  
+export default function ItemDetail() {
+    const { id } = useParams();
+    const isValid = id.length == 36;
+  
+    const [item, setItem] = useState({});
+  
+    useEffect(() => {
+      const item = getItem(id);
+      setItem(item);
+    }, []);
+  
+    return (
+      <>
+        {isValid && (
+          <>
+            <img src={item.Src} style={{ height: '400px', width: '450px' }} />
+            <h1>{item.titulo}</h1>
+            <div>Delail ....{item.detail}</div>
+            <p>Precio: {item.precio}</p>
+          </>
+        )}
+        {!isValid && <NotFound />}
+      </>
+    );
 }
+
+

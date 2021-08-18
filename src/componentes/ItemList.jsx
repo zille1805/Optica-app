@@ -39,6 +39,7 @@ export default function ItemList() {
             stock={objetos.stock}
           />
         ))}
+        
       </>
     );
   }
