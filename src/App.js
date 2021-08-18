@@ -8,7 +8,7 @@ function App() {
   return (
     <body>
     <NavBar />
-    
+    <ItemListConteiner/>
     </body>
   )
 }
