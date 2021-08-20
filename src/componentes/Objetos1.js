@@ -9,8 +9,8 @@ const data = [
       Src: img0,
       titulo: "Marcos Guux Yellow",
       precio: 15000,
-      cantidad: 1,
-      stock: 10,
+      lista: 1,
+      stock: 5,
       detail:"asdasdasdadad"
     },
     {
@@ -18,8 +18,8 @@ const data = [
       Src: img1,
       titulo: "Marcos MorMai",
       precio: 7500,
-      cantidad: 1,
-      stock: 10,
+      lista: 1,
+      stock: 8,
       detail:"asdasdasdadad"
     },
     {
@@ -27,8 +27,8 @@ const data = [
       Src: img2,
       titulo: "Marcos Oreiro",
       precio: 12000,
-      cantidad: 1,
-      stock: 10,
+      lista: 1,
+      stock: 4,
       detail:"asdasdasdadad"
     },
     {
@@ -36,8 +36,8 @@ const data = [
       Src: img3,
       titulo: "Marcos Reef",
       precio: 8900,
-      cantidad: 1,
-      stock: 10,
+      lista: 1,
+      stock: 6,
       detail:"asdasdasdadad"
     }
 ];

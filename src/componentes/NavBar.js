@@ -2,22 +2,47 @@
 import ButtonBoostrap from './Button.jsx'
 import Carrito from './CartWidget.jsx'
 import logo from '..//componentes/img/logo.jpeg'
-import ItemListConteiner from '..//componentes/ItemListConteiner'
-
+import { Link } from "react-router-dom";
+ const data1 = 2
+ const data2 = 1
 export default function NavBar(){
     return(
-        <>
-        <img class='logo' src={logo} style={{ height: '200px', width: '500px'}} />
-        <article>
-        <Carrito />
-        </article>
-        <article style={{ marginTop:'10px' }}>
-            <ButtonBoostrap Text= "Lentes de contacto" Variant="primary" onClick={()=>ItemListConteiner ()}/>
-            <ButtonBoostrap Text= "Armazones" Variant="success"/>
-            <ButtonBoostrap Text= "Cristales" Variant="warning"/>
-            <ButtonBoostrap Text= "Liquidos LC" Variant="danger"/>
-            <ButtonBoostrap Text= "Ayuda" Variant="info"/>
-        </article>
-        </>
+        <header>
+            <img class='logo' src={logo} style={{ height: '200px', width: '500px'}} />
+            <div>
+                <Carrito />
+            </div>
+            <nav>
+            <ul>
+                <li>
+                    <Link to="/">
+
+                    </Link>
+                    
+                    <Link to={`/ItemListConteiner/${data1}`}>
+                        <ButtonBoostrap Text= "Lentes de contacto" Variant="primary" />
+                    </Link>
+
+                    <Link to={`/ItemListConteiner/${data2}`}>
+                        <ButtonBoostrap Text= "Armazones" Variant="success"/>
+                    </Link>
+
+                    <Link >
+                        <ButtonBoostrap Text= "Cristales" Variant="warning"/>
+                    </Link>
+
+                    <Link >
+                        <ButtonBoostrap Text= "Liquidos LC" Variant="danger"/>
+                    </Link>
+
+                    <Link>
+                        <ButtonBoostrap Text= "Ayuda" Variant="info"/>
+                    </Link>
+                    
+                </li>
+            </ul>
+        </nav>
+        
+        </header>
     )
 }

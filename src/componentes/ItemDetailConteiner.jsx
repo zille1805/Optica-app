@@ -1,55 +1,51 @@
-import { render } from "@testing-library/react";
+import React from 'react'
+import { useParams, Link } from "react-router-dom";
+import ButtonBoostrap from './Button.jsx'
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail"
-import objeto from "./Objetos1"
+import data1 from "./Objetos1"
+import data2 from "./Objetos2"
 
-
-export default function ItemDetailConteiner({id}){
-  const [cargar, setCargar] = useState(false);
-  const [detail, setDetail] = useState([]);
-  const [lentes, setLentes] = useState([]);
-  
-  useEffect(() => {
-    const tarea = new Promise((resolve, reject) => {
-      setDetail(id)
-      setTimeout(() => resolve(objeto), 2000);
-      setCargar(true);
-    });
-  
-    tarea
-      .then((respuestaDeLaPromesa) => {
-        setCargar(false);
-        setLentes(respuestaDeLaPromesa);
-      })
-      .catch((err) => {
-        setCargar(true);
-        console.log("algo salio mal...");
-      });
-  }, []);
-  
-  if (cargar === true) {
-    return <h1>Esta cargando...</h1>;
-  } else if (cargar === false) {
-    render(()=>{
-      return (
-        <>
-        {lentes.map((objetos)=>{
-          if(lentes.id===detail){
-            <ItemDetail
-              id={objetos.id}
-              Src={objetos.Src}
-              titulo={objetos.titulo}
-              precio={objetos.precio}
-              detail={objetos.detail}
-              stock={objetos.stock} 
-            />
-          }
-              
-        })}
-  
-        </>
-      );
-
-    })
+const  getDataCargar =  data => {
+  if(data == 1){
+    const datamostrar = data1
+    return datamostrar;
+  } else{
+    const datamostrar = data2
+    return datamostrar;
   }
+}
+
+export default function ItemDetailConteiner(){
+  const { data, id } = useParams();
+  const [itemObtenido, setItemObtenido] =useState([])
+
+  const dataf=getDataCargar(data)
+
+  const  getItemCargar =  id => {
+    const item1 = dataf.find(item => item.id == id);
+    return item1;
+  }
+
+  useEffect(() => {
+    const itemmostrar = getItemCargar(id)
+    setItemObtenido(itemmostrar)
+  }, []);
+
+  return (
+    <>
+      <div className="boody-detail" style={{ border: "1px solid black", margin: "10px" }}>
+        <ItemDetail
+          Src={itemObtenido.Src}
+          titulo={itemObtenido.titulo}
+          precio={itemObtenido.precio}
+          detail={itemObtenido.detail}
+          stock={itemObtenido.stock}
+        />
+        <Link to={`/ItemListConteiner/${itemObtenido.lista}`}>
+          <ButtonBoostrap Text= "Volver" Variant="primary" />
+        </Link>
+      </div>
+    </>
+  )
 }

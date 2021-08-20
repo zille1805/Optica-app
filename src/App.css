@@ -2,15 +2,27 @@
   margin: 0;
   padding: 0;
 }
-body{
-
+header{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 60px;
   margin-left: 60px;
   margin-right: 60px;     
 }
-
-.button{
-  background-color: aquamarine;
+.boody-center{
+  display: flex;
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 100px;
+  margin-right: 100px;     
 }
+.boody-center{
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 150px;
+  margin-right: 150px;
+
+}
+
+
+

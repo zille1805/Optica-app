@@ -1,7 +1,7 @@
 import { useState } from "react"
+import ButtonBoostrap from './Button.jsx'
 
-
-export default function Conter({InitialValue, Stock}){
+export default function ItemConter({InitialValue, Stock}){
     const [count, setCount]=useState(InitialValue)
     const[stock, setStock]=useState(Stock)
     const increment = ()=>{
@@ -17,12 +17,12 @@ export default function Conter({InitialValue, Stock}){
         }
     }
     return(
-        <div>
+        <div className="contador">
         <span>Cantidad de objetos: {Stock}, Cantidad a compara: {count}</span>
         <div>
-            <button onClick={()=> increment()}> Sumar </button>
-            <button onClick={()=> decrement()}> Restar </button>
-            <button> Add </button>
+            <ButtonBoostrap  Text="Sumar" Variant="primary"  onClick={()=> increment()}/> 
+            <ButtonBoostrap  Text="Restar" Variant="primary"  onClick={()=> decrement()}/>
+            <ButtonBoostrap  Text="Add" Variant="primary"/> 
         </div>
         </div>
     )
