@@ -7,10 +7,10 @@ import data1 from "./Objetos1"
 import data2 from "./Objetos2"
 
 const  getDataCargar =  data => {
-  if(data == 1){
+  if(data === "Marcos"){
     const datamostrar = data1
     return datamostrar;
-  } else{
+  } else if (data === "Lc"){
     const datamostrar = data2
     return datamostrar;
   }
