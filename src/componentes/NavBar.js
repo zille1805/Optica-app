@@ -8,17 +8,17 @@ import { Link } from "react-router-dom";
 export default function NavBar(){
     return(
         <header>
-            <img class='logo' src={logo} style={{ height: '200px', width: '500px'}} />
-            <div>
-                <Carrito />
-            </div>
             <nav>
             <ul>
                 <li>
                     <Link to="/">
-
+                        <div>
+                            <img class='logo' src={logo} style={{ height: '200px', width: '500px'}} />
+                        </div>
                     </Link>
-                    
+                    <div>
+                        <Carrito />
+                    </div>
                     <Link to={`/ItemListConteiner/${data1}`}>
                         <ButtonBoostrap Text= "Lentes de contacto" Variant="primary" />
                     </Link>

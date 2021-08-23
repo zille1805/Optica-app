@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
 import NavBar from './componentes/NavBar.js';
-import Home from "./componentes/home";
+import Home from "./componentes/Home";
 import ItemListConteiner from './componentes/ItemListConteiner.jsx'
 import ItemDetailConteiner from './componentes/ItemDetailConteiner.jsx'
 
