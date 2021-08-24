@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail"
 import data1 from "./Objetos1"
 import data2 from "./Objetos2"
+import ItemConter from './ItemCount'
 
 const  getDataCargar =  data => {
   if(data === "Marcos"){
@@ -42,6 +43,9 @@ export default function ItemDetailConteiner(){
           detail={itemObtenido.detail}
           stock={itemObtenido.stock}
         />
+        <div>
+          <ItemConter InitialValue="1" Stock={itemObtenido.stock} />
+        </div>
         <Link to={`/ItemListConteiner/${itemObtenido.lista}`}>
           <ButtonBoostrap Text= "Volver" Variant="primary" />
         </Link>

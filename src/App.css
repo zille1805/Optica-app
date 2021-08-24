@@ -24,5 +24,7 @@ header{
 
 }
 
-
+.boton-terminar{
+  display: none;
+}
 

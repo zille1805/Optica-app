@@ -21,6 +21,7 @@ export default function ItemList() {
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
+    
     const tarea = new Promise((resolve, reject) => {
       const dataf=getDataCargar(data)
       setTimeout(() => resolve(dataf), 2000);
@@ -36,7 +37,7 @@ export default function ItemList() {
         setCargar(true);
         console.log("algo salio mal...");
       });
-  }, []);
+  }, [data]);
 
   if (cargar === true) {
     return <h1>Esta cargando...</h1>;
