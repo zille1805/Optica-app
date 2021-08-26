@@ -13,7 +13,7 @@ export default function ItemDetail({titulo, Src, stock, precio,detail}) {
                 </p>
             </div>
             <p>Precio: {precio}</p>
-            <ItemConter initialValue="1" stock={stock} />
+            <ItemConter initialValue="1" stockValue={stock} />
             
 
             

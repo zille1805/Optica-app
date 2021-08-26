@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 
 const ArrayItemcomp=[]
 
-export default function ItemConter({initialValue, stock}){
+export default function ItemConter({initialValue, stockValue}){
     
     const [count, setCount]=useState(initialValue)
-    const[Stock, setStock]=useState(stock)
+    const[Stock, setStock]=useState(stockValue)
     
     const Increment = ()=>{
         if ( Stock >= 1 ){
