@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { useContext } from "react";
 import ButtonBoostrap from './Button.jsx'
 import { Link } from "react-router-dom"
-
+import {ThemeContext}  from "./contex/themecontext.jsx"
 const ArrayItemcomp=[]
 
 export default function ItemConter({initialValue, stockValue}){
     
     const [count, setCount]=useState(initialValue)
     const[Stock, setStock]=useState(stockValue)
+    const [ isOn, setIsOn] = useState(true)
     
     const Increment = ()=>{
         if ( Stock >= 1 ){
@@ -17,9 +19,17 @@ export default function ItemConter({initialValue, stockValue}){
     }
     const Decrement = ()=>{
         if (count >= 1 ){
-            // ArrayItemcomp.splice(0, 1, 'Item')
+          
             setCount(count - 1)
             setStock(Stock -(-1))
+        }
+    }
+    const Add=()=>{
+        if (count>1){
+            return(
+                setIsOn(!isOn)
+            )
+
         }
     }
     return(
@@ -28,7 +38,7 @@ export default function ItemConter({initialValue, stockValue}){
         <div>
             <button  onClick={Increment}>Sumar </button>
             <button  onClick={Decrement}>Restar</button>
-            <button Text="Agregar al carrito" Variant="primary">Agregar al carrito </button>
+            <button Text="Agregar al carrito" Variant="primary" onClick={Add}>Agregar al carrito </button>
             <div id="boton-terminar">
                 {count > 0 && <Link to="/Cart"><ButtonBoostrap  Text="Terminar mi Compra" Variant="success"/></Link>}
             </div>

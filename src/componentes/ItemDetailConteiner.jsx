@@ -6,7 +6,6 @@ import ItemDetail from "./ItemDetail"
 import data1 from "./Objetos1"
 import data2 from "./Objetos2"
 
-
 const  getDataCargar =  data => {
   if(data === "Marcos"){
     const datamostrar = data1
@@ -19,35 +18,49 @@ const  getDataCargar =  data => {
 
 export default function ItemDetailConteiner(){
   const { data, id } = useParams();
+  const [cargar, setCargar]=useState(false);
   const [itemObtenido, setItemObtenido] =useState([])
-
   const dataf=getDataCargar(data)
-
-  const  getItemCargar =  id => {
-    const item1 = dataf.find(item => item.id == id);
-    return item1;
-  }
-
   useEffect(() => {
-    const itemmostrar = getItemCargar(id)
-    setItemObtenido(itemmostrar)
-  }, []);
-
-  return (
-    <>
-      <div className="boody-detail" style={{ border: "1px solid black", margin: "10px" }}>
-        <ItemDetail
+    const tarea = new Promise((resolve, reject) => {
+      setCargar(true)
+      setTimeout(
+        () => {resolve(dataf.filter((item) => item.id === id))},
+        2000
+      );
+    })
+    tarea.then((data) => {
+      console.log("data", data);
+      setItemObtenido(dataf[0])
+      setCargar(false)
+    })
+    tarea.catch((err)=>console.error(err));
+  }, [id]); //por si cambia el id en la barra de navegacion
+  if (cargar) {
+    return (
+       <>
+        <div>
+          <h1>Cargando, porfavor espere... </h1>
+        </div>
+      </>
+    )
+  }else{
+    return (
+      <>
+       <div className="boody-detail" style={{ border: "6px solid purple", margin: "10px" }}>
+          <Link to={`/ItemListConteiner/${itemObtenido.lista}`} style={{ marginLeft: "10px" }}>
+            <ButtonBoostrap Text= "Volver" Variant="primary" />
+          </Link>
+          <ItemDetail
           Src={itemObtenido.Src}
           titulo={itemObtenido.titulo}
           precio={itemObtenido.precio}
           detail={itemObtenido.detail}
           stock={itemObtenido.stock}
-        />
-        
-        <Link to={`/ItemListConteiner/${itemObtenido.lista}`}>
-          <ButtonBoostrap Text= "Volver" Variant="primary" />
-        </Link>
-      </div>
-    </>
-  )
+          />
+          
+        </div>
+      </>
+    )
+  }
 }

@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import './App.css';
 import NavBar from './componentes/NavBar.js';
 import Home from "./componentes/Home";
@@ -7,11 +8,10 @@ import ItemDetailConteiner from './componentes/ItemDetailConteiner.jsx'
 import Cart from './componentes/Cart'
 import NotFound404 from './Pages/Error/404';
 
-
 function App() {
   return (
     <header>
-    <BrowserRouter>
+      <BrowserRouter>
       <NavBar />
       <Switch>
         <Route exact path="/">

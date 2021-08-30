@@ -45,7 +45,13 @@ export default function ItemList() {
     return (
       <>
         {itemList.map((objetos) => (
-          <div style={{ border: "1px solid black",margin: "10px" }}>
+          <div style={{ 
+            border: "1px solid black",
+            width: "450px",
+            maxwidth: "100%",
+            margin: "auto",
+            margintop: "30px",
+            padding: "20px",}}>
           <Item
             Src={objetos.Src}
             titulo={objetos.titulo}
