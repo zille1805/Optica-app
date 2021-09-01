@@ -1,11 +1,7 @@
 import React from 'react'
-import { useState } from "react";
-
 import ItemConter from './ItemCount'
 
-
 export default function ItemDetail({titulo, Src, stock, precio,detail}) {
-    const [isOn, setIsOn] = useState(true);
   
     return (
         <div>
@@ -19,13 +15,8 @@ export default function ItemDetail({titulo, Src, stock, precio,detail}) {
             <p>Precio: {precio}</p>
 
             <div>
-                 {isOn ==true && <ItemConter initialValue="1" stockValue={stock} />}
+                 <ItemConter initialValue="1" stockValue={stock} />
             </div>
-
-            
-            
-
-            
         </div>
     )
 

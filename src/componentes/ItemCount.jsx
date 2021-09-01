@@ -1,14 +1,15 @@
 import { useState } from "react"
-
 import ButtonBoostrap from './Button.jsx'
 import { Link } from "react-router-dom"
-const ArrayItemcomp=[]
+
+
 
 export default function ItemConter({initialValue, stockValue}){
-    
-    const [count, setCount]=useState(initialValue)
-    const[Stock, setStock]=useState(stockValue)
-    const [ isOn, setIsOn] = useState(null)
+
+    const [count, setCount]=useState(initialValue);
+    const[Stock, setStock]=useState(stockValue);
+    const [ isOn, setIsOn] = useState(null);
+    const [itemComprar, setitemComprar] = useState(null);
     
     const Increment = ()=>{
         if ( Stock >= 1 ){
@@ -26,6 +27,7 @@ export default function ItemConter({initialValue, stockValue}){
     const Add=()=>{
         if (count >= 1){
             setIsOn(true)
+            setitemComprar()
         }
     }
     return(

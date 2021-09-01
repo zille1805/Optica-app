@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
   
+
+}
+
+body.isDark *{
+  background: black;
+
 }
 header{
   font-family: 'Open Sans', sans-serif;

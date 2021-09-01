@@ -3,7 +3,9 @@ import ButtonBoostrap from './Button.jsx'
 import Item from "./Item.jsx";
 import { Link, useParams } from "react-router-dom";
 import data1 from "./Objetos1";
-import data2 from "./Objetos2"
+import data2 from "./Objetos2";
+import { useContext } from "react";
+import { ThemeContext } from "./contex/themecontext";
 
 const  getDataCargar =  data => {
   if(data == "Marcos"){
@@ -19,6 +21,7 @@ export default function ItemList() {
   const {data}=useParams()
   const [cargar, setCargar] = useState(false);
   const [itemList, setItemList] = useState([]);
+  const { isDark, setIsDark } = useContext(ThemeContext);
 
   useEffect(() => {
     
@@ -47,6 +50,8 @@ export default function ItemList() {
         {itemList.map((objetos) => (
           <div style={{ 
             border: "1px solid black",
+            background: isDark ? "black" : "white",
+            color: isDark ? "white" : "black",
             width: "450px",
             maxwidth: "100%",
             margin: "auto",
