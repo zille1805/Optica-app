@@ -4,7 +4,7 @@ import Carrito from './CartWidget.jsx'
 import logo from '..//componentes/img/logo.jpeg'
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ThemeContext } from "./contex/themecontext";
+import { ThemeContext } from "./contex/Themecontext";
 
 
  const data1 = "Marcos"

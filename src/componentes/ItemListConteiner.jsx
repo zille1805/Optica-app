@@ -1,6 +1,6 @@
 import ItemList from './ItemList.jsx';
 import { useContext } from "react";
-import { ThemeContext } from "./contex/themecontext";
+import { ThemeContext } from "./contex/Themecontext";
 
 const ItemListConteiner =({ Greeting })=>{
     const { isDark, setIsDark } = useContext(ThemeContext);

@@ -5,6 +5,7 @@ import img3 from "..//componentes/img/LContactos/Acuvue.PNG"
 const data = [
     {
       id: 0,
+      cantidad:1,
       Src: img0,
       titulo: "LC Clariti",
       precio: 2625,
@@ -14,6 +15,7 @@ const data = [
     },
     {
       id: 1,
+      cantidad:1,
       Src: img1,
       titulo: "LC Acuvue Oasys con HydraClear Plus",
       precio: 7500,
@@ -23,6 +25,7 @@ const data = [
     },
     {
       id: 2,
+      cantidad:1,
       Src: img2,
       titulo: "LC Optima 38",
       precio: 12000,
@@ -32,6 +35,7 @@ const data = [
     },
     {
       id: 3,
+      cantidad:1,
       Src: img3,
       titulo: "LC Acuvue-2",
       precio: 4500,

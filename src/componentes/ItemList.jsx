@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import data1 from "./Objetos1";
 import data2 from "./Objetos2";
 import { useContext } from "react";
-import { ThemeContext } from "./contex/themecontext";
+import { ThemeContext } from "./contex/Themecontext";
 
 const  getDataCargar =  data => {
   if(data == "Marcos"){

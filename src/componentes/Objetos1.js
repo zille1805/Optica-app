@@ -6,6 +6,7 @@ import img3 from "..//componentes/img/marcos/reef.jpg"
 const data = [
     {
       id: 0,
+      cantidad:1,
       Src: img0,
       titulo: "Marcos Guux Yellow",
       precio: 15000,
@@ -15,6 +16,7 @@ const data = [
     },
     {
       id: 1,
+      cantidad:1,
       Src: img1,
       titulo: "Marcos MorMai",
       precio: 7500,
@@ -24,6 +26,7 @@ const data = [
     },
     {
       id: 2,
+      cantidad:1,
       Src: img2,
       titulo: "Marcos Oreiro",
       precio: 12000,
@@ -33,6 +36,7 @@ const data = [
     },
     {
       id: 3,
+      cantidad:1,
       Src: img3,
       titulo: "Marcos Reef",
       precio: 8900,

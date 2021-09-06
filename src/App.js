@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import {ThemeContext} from "./componentes/contex/themecontext";
-import {CartContext} from "./componentes/contex/cartcontext";
+import {ThemeContext} from "./componentes/contex/Themecontext";
+import {CartProvider} from "./componentes/contex/Cartcontext";
 import './App.css';
 import NavBar from './componentes/NavBar.js';
 import Home from "./componentes/Home";
@@ -12,11 +12,11 @@ import { useState } from "react";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
-  const [itemComprar, setitemComprar] = useState(true);
+  const [carrito, setCarritoAdd] = useState([]);
   return (
     <header>
       <ThemeContext.Provider value={{ isDark, setIsDark }}>
-        <CartContext.Provider value={{ itemComprar, setitemComprar }}>
+        <CartProvider>
         <BrowserRouter>
           <NavBar />
           <Switch>
@@ -30,12 +30,12 @@ function App() {
               <ItemDetailConteiner />
             </Route>
             <Route exact path="/Cart">
-              <Cart/>
+              <Cart />
             </Route>
             <Route path="*" component={NotFound404} />
           </Switch>
         </BrowserRouter>
-        </CartContext.Provider>
+        </CartProvider>
       </ThemeContext.Provider>
     </header>
   )
