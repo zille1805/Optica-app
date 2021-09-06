@@ -6,7 +6,7 @@ import ItemDetail from "./ItemDetail";
 import data1 from "./Objetos1";
 import data2 from "./Objetos2";
 import { useContext } from "react";
-import { ThemeContext } from "./contex/Themecontext";
+
 
 const  getDataCargar =  data => { 
   // esta funcion es para cargar la lista de objetos  correspondiente dependiendo de lo que busca el cliente
@@ -23,7 +23,6 @@ export default function ItemDetailConteiner(){
   const { data, id } = useParams();
   const [cargar, setCargar]=useState(false);
   const [itemObtenido, setItemObtenido] =useState([])
-  const { isDark, setIsDark } = useContext(ThemeContext);
 
   const dataf=getDataCargar(data)
   
@@ -51,7 +50,7 @@ export default function ItemDetailConteiner(){
   }else{
     return (
       <>
-       <div className="boody-detail" style={{ border: "6px solid purple", margin: "10px", background: isDark ? "black" : "white", color: isDark ? "white" : "black" }}>
+       <div className="boody-detail" style={{ border: "6px solid purple", margin: "10px"}}>
           <Link to={`/ItemListConteiner/${itemObtenido.lista}`} style={{ marginLeft: "10px" }}>
             <ButtonBoostrap Text= "Volver" Variant="primary" />
           </Link>
