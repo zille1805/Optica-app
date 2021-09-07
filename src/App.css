@@ -29,23 +29,27 @@ header{
 }
 
 
-table{width:100%;border-collapse:collapse;margin:1em 0;}
-th, td{padding:.5em;border:1px solid #fff;}
-th{background:#328aa4 repeat-x;color:#fff;}
-td{background:#e5f1f4;}
+table, td {
+	font:100% Arial, Helvetica, sans-serif !important; 
+    text-align: center !important;
+}
+table{width:100%!important;border-collapse:collapse!important;margin:1em 0!important;}
+th, td{padding:.5em!important;border:2px solid rgb(238, 238, 238)!important}
+th{background:#36aace repeat-x!important;color:#fffdfd!important;}
+td{background:#e9f0f8!important;}
 
 /* tablecloth styles */
 
-tr.even td{background:#e5f1f4;}
-tr.odd td{background:#f8fbfc;}
+tr.even td{background:#e5f1f4!important;}
+tr.odd td{background:#f8fbfc!important;}
 
-th.over, tr.even th.over, tr.odd th.over{background:#4a98af;}
-th.down, tr.even th.down, tr.odd th.down{background:#bce774;}
+th.over, tr.even th.over, tr.odd th.over{background:#4a98af!important;}
+th.down, tr.even th.down, tr.odd th.down{background:#bce774!important;}
 
 
-td.over, tr.even td.over, tr.odd td.over{background:#ecfbd4;}
-td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
-td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}
+td.over, tr.even td.over, tr.odd td.over{background:#ecfbd4!important;}
+td.down, tr.even td.down, tr.odd td.down{background:#bce774!important;color:#fff!important;}
+td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774!important;color:#555!important;}
 
 /* use this if you want to apply different styleing to empty table cells*/
-td.empty, tr.odd td.empty, tr.even td.empty{background:#fff;}
+td.empty, tr.odd td.empty, tr.even td.empty{background:#fff!important;}

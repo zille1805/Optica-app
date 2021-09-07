@@ -12,7 +12,7 @@ export default function Carrito() {
           { cart.length>0 ? 
                       
                       <div>
-                        <table class="table1"  id="table1">
+                        <table >
                           <thead>
                             <tr>
                               <th colspan="6">

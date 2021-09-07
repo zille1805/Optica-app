@@ -14,13 +14,14 @@ export const CartProvider = ({ children }) => {
     const itemRep=cart.find(item=>item.titulo===itemComprar.titulo);
     if (!itemRep){
         setCart([...cart,{titulo:itemComprar.titulo,subtotal:(itemComprar.precio*cantidad),cantidad:cantidad,precio:itemComprar.precio}]);
-        setUnidad(unidad+1);
+        setUnidad(unidad+cantidad);
         setPrecioT(preciot+(itemComprar.precio*cantidad));
     }else{
       const carritoBorrador=cart.map((item)=>{
         if(item.titulo==itemComprar.titulo){
-          item.cantidad+=cantidad
+          item.cantidad=(item.cantidad-(-cantidad))//evita que me tome los numeros como cadena
           item.precio+=(itemComprar.precio*cantidad)
+          setUnidad(unidad+cantidad);
         }
         return(item)
       })
@@ -36,6 +37,7 @@ export const CartProvider = ({ children }) => {
     cart.map((item)=>{
       if (item.titulo===titulo){
         setPrecioT(preciot-(item.subtotal))
+        setUnidad(unidad-item.cantidad);
       }
     })
     const carritoBorrador=cart.filter((itemnoborrar)=>itemnoborrar.titulo !==titulo)
