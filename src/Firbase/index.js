@@ -1,4 +1,3 @@
-
 import { initializeApp } from 'firebase/app';
 import {
   getDoc,
@@ -14,17 +13,15 @@ import {
   writeBatch
 } from 'firebase/firestore';
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBcIUMSN9PFj0FHNr4zLr6LR5pZya5ToSc",
-  authDomain: "optica-imagen.firebaseapp.com",
-  projectId: "optica-imagen",
-  storageBucket: "optica-imagen.appspot.com",
-  messagingSenderId: "990829906413",
-  appId: "1:990829906413:web:f8ccee4e94510150877fe4"
+  apiKey: "AIzaSyD7sThzSEgvZajTudK5SASru_NQztcrfcY",
+  authDomain: "optica-imagen2.firebaseapp.com",
+  projectId: "optica-imagen2",
+  storageBucket: "optica-imagen2.appspot.com",
+  messagingSenderId: "334279905388",
+  appId: "1:334279905388:web:c2a9fc84fea7be084f0849",
+  measurementId: "G-Z0BDDTFBYN"
 };
-
-
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
@@ -69,11 +66,10 @@ export class Firebase {
   static getAll(path, options) {
     const pathSegments = path.split('/');
     const ref = this.getCollection(...pathSegments);
-
-    const isValid = FirebaseUtils.isValidOptions(options);
-    if (isValid) {
+   
+    if (options!= null) {
       return getDocs(
-        query(ref, where(options.field, options.condition, options.value))
+        query(ref, where('lista', '==', options))
       );
     }
 
@@ -99,3 +95,5 @@ export class Firebase {
     return writeBatch(db);
   }
 }
+
+

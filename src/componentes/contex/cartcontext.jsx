@@ -1,6 +1,4 @@
 import { createContext, useState } from "react";
-import React, { useContext } from 'react';
-
 
 const Cartcontext = createContext({});
 
@@ -18,7 +16,7 @@ export const CartProvider = ({ children }) => {
         setPrecioT(preciot+(itemComprar.precio*cantidad));
     }else{
       const carritoBorrador=cart.map((item)=>{
-        if(item.titulo==itemComprar.titulo){
+        if(item.titulo === itemComprar.titulo){
           item.cantidad=(item.cantidad-(-cantidad))//evita que me tome los numeros como cadena
           item.precio+=(itemComprar.precio*cantidad)
           setUnidad(unidad+cantidad);

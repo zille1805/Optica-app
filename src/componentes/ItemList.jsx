@@ -2,50 +2,43 @@ import { useEffect, useState } from "react";
 import ButtonBoostrap from './Button.jsx'
 import Item from "./Item.jsx";
 import { Link, useParams } from "react-router-dom";
-import data1 from "./Objetos1";
-import data2 from "./Objetos2";
-
+import { Firebase } from '../Firbase/index.js'
 const  getDataCargar =  data => {
   if(data == "Marcos"){
-    const datamostrar = data1
+    const datamostrar = data
     return datamostrar;
   } else if(data == "Lc"){
-    const datamostrar = data2
+    const datamostrar = data
     return datamostrar;
   }
 }
 
 export default function ItemList() {
   const {data}=useParams()
-  const [cargar, setCargar] = useState(false);
-  const [itemList, setItemList] = useState([]);
-  
+  const [cargar, setCargar] = useState(true);
+  const [itemListMostrar, setItemListMostrar] = useState([]);
 
   useEffect(() => {
-    
-    const tarea = new Promise((resolve, reject) => {
-      const dataf=getDataCargar(data)
-      setTimeout(() => resolve(dataf), 2000);
-      setCargar(true);
+
+    const dataf = getDataCargar(data)
+    Firebase.getAll(`objetos`, dataf).then(res => {
+      const arr = [];
+      res.forEach(item => {
+        const data = item.data();
+        arr.push({ ...data });
+      });
+      setItemListMostrar(arr)
+      setCargar(false)
     });
 
-    tarea
-      .then((respuestaDeLaPromesa) => {
-        setCargar(false);
-        setItemList(respuestaDeLaPromesa);
-      })
-      .catch((err) => {
-        setCargar(true);
-        console.log("algo salio mal...");
-      });
-  }, [data]);
-
+  }, [data])
+  
   if (cargar === true) {
     return <h1>Esta cargando...</h1>;
   } else if (cargar === false) {
     return (
       <>
-        {itemList.map((objetos) => (
+        {itemListMostrar.map((objetos) => (
           <div style={{ 
             border: "1px solid black",
             width: "450px",
@@ -53,11 +46,7 @@ export default function ItemList() {
             margin: "auto",
             margintop: "30px",
             padding: "20px",}}>
-          <Item
-            Src={objetos.Src}
-            titulo={objetos.titulo}
-            stock={objetos.stock}
-          />
+          <Item {...objetos}/>
           <Link to={`/ItemList-detail/${objetos.lista}/${objetos.id}`}>
             <ButtonBoostrap Text= "ver detalle del Producto" Variant="primary" />
             

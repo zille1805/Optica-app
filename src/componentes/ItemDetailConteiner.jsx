@@ -3,42 +3,24 @@ import { useParams, Link } from "react-router-dom";
 import ButtonBoostrap from './Button.jsx';
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import data1 from "./Objetos1";
-import data2 from "./Objetos2";
-import { useContext } from "react";
+import { Firebase } from '../Firbase/index.js'
 
-
-const  getDataCargar =  data => { 
-  // esta funcion es para cargar la lista de objetos  correspondiente dependiendo de lo que busca el cliente
-  if(data === "Marcos"){
-    const datamostrar = data1
-    return datamostrar;
-  } else if (data === "Lc"){
-    const datamostrar = data2
-    return datamostrar;
-  }
-}
 
 export default function ItemDetailConteiner(){
-  const { data, id } = useParams();
-  const [cargar, setCargar]=useState(false);
-  const [itemObtenido, setItemObtenido] =useState([])
+  const { id } = useParams();
+  const [cargar, setCargar]=useState(true);
+  const [itemObtenido, setItemObtenido] = useState([])
 
-  const dataf=getDataCargar(data)
-  
   useEffect(() => {
-    const tarea = new Promise((resolve, reject) => {
-      setCargar(true)
-      setTimeout(() => {resolve(dataf.filter((item) => item.id == id))},2000);
-    })
-    tarea
-    .then((dataf) => {
-      setItemObtenido(dataf[0])
-      setCargar(false)
-    })
-    .catch((err)=>console.error(err));
-  }, [id]); //por si cambia el id en la barra de navegacion
-  
+    Firebase.get(`items/${id}`).then(res => {
+      const item = res.data();
+      setItemObtenido({...item});
+    });
+    setCargar(false)
+
+  }, [id])
+
+
   if (cargar) {
     return (
       <>
@@ -47,21 +29,21 @@ export default function ItemDetailConteiner(){
         </div>
       </>
     )
-  }else{
+  } else {
     return (
       <>
-       <div className="boody-detail" style={{ border: "6px solid purple", margin: "10px"}}>
+        <div  style={{ border: "6px solid purple", margin: "10px" }}>
           <Link to={`/ItemListConteiner/${itemObtenido.lista}`} style={{ marginLeft: "10px" }}>
-            <ButtonBoostrap Text= "Volver" Variant="primary" />
+            <ButtonBoostrap Text="Volver" Variant="primary" />
           </Link>
-          <ItemDetail 
-           Src={itemObtenido.Src}
-           titulo={itemObtenido.titulo}
-           precio={itemObtenido.precio}
-           detail={itemObtenido.detail}
-           stock={itemObtenido.stock}
-           cantidad={itemObtenido.cantidad}
-            />       
+          <ItemDetail
+            Src={itemObtenido.Src}
+            titulo={itemObtenido.titulo}
+            precio={itemObtenido.precio}
+            detail={itemObtenido.detail}
+            stock={itemObtenido.stock}
+            cantidad={itemObtenido.cantidad}
+          />
         </div>
       </>
     )
