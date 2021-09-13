@@ -12,11 +12,21 @@ export default function ItemDetailConteiner(){
   const [itemObtenido, setItemObtenido] = useState([])
 
   useEffect(() => {
-    Firebase.get(`items/${id}`).then(res => {
+    Firebase.get(`objetos/${id}`).then(res => {
       const item = res.data();
-      setItemObtenido({...item});
+      setItemObtenido(
+        <ItemDetail
+        Src={item.Src}
+        titulo={item.titulo}
+        precio={item.precio}
+        detail={item.detail}
+        stock={item.stock}
+        cantidad={item.cantidad}
+        lista={item.lista}
+        />
+      );
+      setCargar(false)
     });
-    setCargar(false)
 
   }, [id])
 
@@ -33,17 +43,7 @@ export default function ItemDetailConteiner(){
     return (
       <>
         <div  style={{ border: "6px solid purple", margin: "10px" }}>
-          <Link to={`/ItemListConteiner/${itemObtenido.lista}`} style={{ marginLeft: "10px" }}>
-            <ButtonBoostrap Text="Volver" Variant="primary" />
-          </Link>
-          <ItemDetail
-            Src={itemObtenido.Src}
-            titulo={itemObtenido.titulo}
-            precio={itemObtenido.precio}
-            detail={itemObtenido.detail}
-            stock={itemObtenido.stock}
-            cantidad={itemObtenido.cantidad}
-          />
+          {itemObtenido}
         </div>
       </>
     )

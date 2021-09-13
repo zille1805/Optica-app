@@ -25,7 +25,7 @@ export default function ItemList() {
       const arr = [];
       res.forEach(item => {
         const data = item.data();
-        arr.push({ ...data });
+        arr.push({ ...data, id: item.id  });
       });
       setItemListMostrar(arr)
       setCargar(false)

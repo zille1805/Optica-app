@@ -14,7 +14,7 @@ export default function Home() {
             const arr = [];
             docs.forEach(item => {
                 const data = item.data();
-                arr.push({...data});
+                arr.push({...data, id: item.id});
             });
             setTodosLosItems(arr)
             setCargar(false)

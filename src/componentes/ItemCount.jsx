@@ -14,7 +14,6 @@ export default function ItemConter({initialValue, stockValue, onAdd = () => {}})
     }
     const Decrement = ()=>{
         if (count >= 1 ){
-          
             setCount(count - 1)
             setStock(Stock -(-1))
         }

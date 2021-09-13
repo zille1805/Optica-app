@@ -26,7 +26,7 @@ const firebaseConfig = {
 // Initialize Firebase
 initializeApp(firebaseConfig);
 // Getting db
-const db = getFirestore();
+export const db = getFirestore();
 
 class FirebaseUtils {
   static isValidString(field) {
