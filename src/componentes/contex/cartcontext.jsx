@@ -64,6 +64,7 @@ export const CartProvider = ({ children }) => {
     alert("complra Realizada")
     CerrarSesion()
     setCart([])
+    setUnidad()
     
   }
   return (
