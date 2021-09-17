@@ -1,6 +1,5 @@
 import React from 'react';
-import { useParams, Link } from "react-router-dom";
-import ButtonBoostrap from './Button.jsx';
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { Firebase } from '../Firbase/index.js'

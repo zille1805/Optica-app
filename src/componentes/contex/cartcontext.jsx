@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, setDoc, Timestamp } from "@firebase/firestore";
+import { addDoc, collection} from "@firebase/firestore";
 import { createContext, useContext, useState } from "react";
 import { db } from "../../Firbase";
 import UserContex from "./UserContext";
@@ -56,10 +56,12 @@ export const CartProvider = ({ children }) => {
           email: {email},
       },
       date: new Date().toString(),
-      carrito:{...cart}
+      carrito:{...cart},
+      total: preciot
     };
 
     await addDoc(ordenCollection, newOrder);
+    alert("complra Realizada")
     CerrarSesion()
     setCart([])
     

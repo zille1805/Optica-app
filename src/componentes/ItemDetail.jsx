@@ -1,11 +1,10 @@
 import React from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
-import ButtonBoostrap from './Button.jsx'
 import { Link } from "react-router-dom"
 import ItemConter from './ItemCount'
 import  Cartcontext  from "./contex/Cartcontext";
-
+import Button from 'react-bootstrap/Button'
 
 export default function ItemDetail({titulo, Src, stock, precio,detail,cantidad, lista}) {
     const [cantcomp, setCantComprar]=useState()
@@ -29,7 +28,7 @@ export default function ItemDetail({titulo, Src, stock, precio,detail,cantidad, 
         <div>
             <div>
                 <Link to={`/ItemListConteiner/${lista}`} style={{ marginLeft: "10px" }}>
-                    <ButtonBoostrap Text="Volver" Variant="primary" />
+                    <Button className="btn btn-primary">Volve</Button>
                 </Link>
             </div>
             <img src={Src} style={{ height: '400px', width: '450px' }} />
@@ -47,11 +46,11 @@ export default function ItemDetail({titulo, Src, stock, precio,detail,cantidad, 
                     {!isOn ?
                         <>
                             <ItemConter initialValue="1" stockValue={stock} onAdd={onAdd} />
-                            {cantcomp!=0 ? <button Text="Agregar al carrito" Variant="primary" onClick={AgregarCarrito}>Agregar al carrito </button>:<></>}
+                            {cantcomp!=0 ? <Button Text="Agregar al carrito" Variant="primary" onClick={AgregarCarrito}>Agregar al carrito </Button>:<></>}
                         </>
                         :
                         <div id="boton-terminar">
-                            <Link to="/Cart"><ButtonBoostrap Text="Revisar mi Compra" Variant="success" /></Link>
+                            <Link to="/Cart"><Button className="btn btn-primary">Revisar mi Compra</Button></Link>
                         </div>
                     }
                 </div>

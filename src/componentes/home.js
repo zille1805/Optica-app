@@ -1,5 +1,4 @@
 import Item from "./Item";
-import ButtonBoostrap from './Button.jsx'
 import { Link } from "react-router-dom";
 import { Firebase } from '../Firbase/index.js'
 import { useEffect, useState } from "react";
@@ -27,12 +26,12 @@ export default function Home() {
     } else if (cargar == false) {
         return (
             <>
-                <h1>Bienvenido a Tu Optica de Confianza</h1>
+                <h1>Bienvenido </h1>
                 {todosLosItems.map((objetos) => (
                     <div  style={{ border: "1px solid black", width: "450px", maxwidth: "100%", margin: "auto", }}>
                         <Item Src={objetos.Src} titulo={objetos.titulo} stock={objetos.stock} />
                         <Link to={`/ItemList-detail/${objetos.lista}/${objetos.id}`}>
-                            <ButtonBoostrap Text="ver detalle del Producto" Variant="primary" />
+                            <button className="btn btn-primary">ver detalle del Producto</button>
                         </Link>
                     </div>
                 ))}

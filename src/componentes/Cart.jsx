@@ -3,6 +3,7 @@ import React from 'react';
 import  Cartcontext  from "./contex/Cartcontext";
 import { Link } from 'react-router-dom';
 import UserContex from './contex/UserContext';
+import Button from 'react-bootstrap/Button'
 
 
 export default function Carrito() {
@@ -10,7 +11,7 @@ export default function Carrito() {
   const [numero, setNumero] = useState();
   const [Email, setEmail] = useState();
   //TRAER DE CONTEXT
-  const { user,telefono, email, AgregarUsuario, CerrarSesion } = useContext(UserContex);
+  const { user,telefono, email, AgregarUsuario} = useContext(UserContex);
   const { cart, preciot, RemoveCart, RemoveItem, FinalizarCompra } = useContext(Cartcontext);
 
   return (
@@ -40,7 +41,7 @@ export default function Carrito() {
                   <th><h3>{item.precio}</h3></th>
                   <th><h3>{item.cantidad}</h3></th>
                   <th><h3>$ {item.subtotal} </h3></th>
-                  <th><button className="btn btn-primary" onClick={() => RemoveItem(item.titulo)} >Eliminar</button></th>
+                  <th><Button className="btn btn-primary" onClick={() => RemoveItem(item.titulo)} >Eliminar</Button></th>
                 </tr>
               )}
               <tr>
@@ -50,7 +51,7 @@ export default function Carrito() {
               </tr>
             </tbody>
           </table>
-          <button onClick={() => RemoveCart()}>Cancelar compra</button>
+          <Button onClick={() => RemoveCart()}>Cancelar compra</Button>
           <div>
             {!user ?
               <form>
@@ -66,17 +67,17 @@ export default function Carrito() {
                   <label>Email</label>
                   <input onChange={(e) => { setEmail(e.target.value) }} type="mail" placeholder="Ingrese su mail" />
                 </div>
-                <button onClick={() => AgregarUsuario(nombre, numero, Email)}>iniciar sesión</button>
+                <Button onClick={() => AgregarUsuario(nombre, numero, Email)}>iniciar sesión</Button>
               </form>
               :
-              <button onClick={() => FinalizarCompra(cart, nombre, numero, email)}>Finalizar Compra</button>
+              <Button onClick={() => FinalizarCompra(cart, user,telefono, email)}>Finalizar Compra</Button>
             }
           </div>
         </div>
         :
         <div >
           <h4>No tienes productos seleccionados!!</h4>
-          <Link to="/"><button>Volver al Inicio</button></Link>
+          <Link to="/"><Button>Volver al Inicio</Button></Link>
         </div>
       }
     </>

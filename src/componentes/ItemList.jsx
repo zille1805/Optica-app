@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import ButtonBoostrap from './Button.jsx'
 import Item from "./Item.jsx";
 import { Link, useParams } from "react-router-dom";
 import { Firebase } from '../Firbase/index.js'
+
+
+
 const  getDataCargar =  data => {
   if(data == "Marcos"){
     const datamostrar = data
@@ -48,7 +50,7 @@ export default function ItemList() {
             padding: "20px",}}>
           <Item {...objetos}/>
           <Link to={`/ItemList-detail/${objetos.lista}/${objetos.id}`}>
-            <ButtonBoostrap Text= "ver detalle del Producto" Variant="primary" />
+            <button className="btn btn-primary">ver detalle del Producto</button>
             
           </Link>
           </div>
