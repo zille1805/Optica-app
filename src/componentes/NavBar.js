@@ -39,7 +39,7 @@ export default function NavBar(){
                         <ButtonBoostrap Text= "Liquidos LC" Variant="danger"/>
                     </Link>
 
-                    <Link>
+                    <Link >
                         <ButtonBoostrap Text= "Ayuda" Variant="info"/>
                     </Link>
                     
