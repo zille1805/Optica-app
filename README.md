@@ -16,3 +16,6 @@ Para buildear la app en modo de produccion.
 
 
 ## Navegaccion de la App.
+
+![GIF](/public/gifAppCoderHouse.gif "NAVEGACION")
+
