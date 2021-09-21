@@ -7,7 +7,7 @@ export default function NotFound404() {
   return (
     <>
       <h1>
-        No logre encontrar la pagina que buscas
+        No encontramos la pagina que buscas!
       </h1>
       <div>{url}</div>
     </>

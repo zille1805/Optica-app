@@ -5,24 +5,16 @@ import ItemDetail from "./ItemDetail";
 import { Firebase } from '../Firbase/index.js'
 
 
-export default function ItemDetailConteiner(){
+export default function ItemDetailConteiner() {
   const { id } = useParams();
-  const [cargar, setCargar]=useState(true);
+  const [cargar, setCargar] = useState(true);
   const [itemObtenido, setItemObtenido] = useState([])
 
   useEffect(() => {
     Firebase.get(`objetos/${id}`).then(res => {
       const item = res.data();
       setItemObtenido(
-        <ItemDetail
-        Src={item.Src}
-        titulo={item.titulo}
-        precio={item.precio}
-        detail={item.detail}
-        stock={item.stock}
-        cantidad={item.cantidad}
-        lista={item.lista}
-        />
+        {...item}
       );
       setCargar(false)
     });
@@ -30,7 +22,7 @@ export default function ItemDetailConteiner(){
   }, [id])
 
 
-  if (cargar) {
+  if (cargar===true) {
     return (
       <>
         <div>
@@ -38,11 +30,13 @@ export default function ItemDetailConteiner(){
         </div>
       </>
     )
-  } else {
+  } else if (cargar === false){
     return (
       <>
-        <div  style={{ border: "6px solid purple", margin: "10px" }}>
-          {itemObtenido}
+        <div style={{ padding: "20px" }}>
+          <div style={{ border: "6px solid purple", margin: "5px" }}>
+          <ItemDetail {...itemObtenido}/>
+          </div>
         </div>
       </>
     )

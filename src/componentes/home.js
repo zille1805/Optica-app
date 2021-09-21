@@ -1,7 +1,9 @@
 import Item from "./Item";
-import { Link } from "react-router-dom";
 import { Firebase } from '../Firbase/index.js'
 import { useEffect, useState } from "react";
+import chica from "./img/chica.png";
+import chico from "./img/chico.png";
+
 
 
 
@@ -13,7 +15,7 @@ export default function Home() {
             const arr = [];
             docs.forEach(item => {
                 const data = item.data();
-                arr.push({...data, id: item.id});
+                arr.push({ ...data, id: item.id });
             });
             setTodosLosItems(arr)
             setCargar(false)
@@ -26,16 +28,27 @@ export default function Home() {
     } else if (cargar == false) {
         return (
             <>
-                <h1>Bienvenido </h1>
-                {todosLosItems.map((objetos) => (
-                    <div  style={{ border: "1px solid black", width: "450px", maxwidth: "100%", margin: "auto", }}>
-                        <Item Src={objetos.Src} titulo={objetos.titulo} stock={objetos.stock} />
-                        <Link to={`/ItemList-detail/${objetos.lista}/${objetos.id}`}>
-                            <button className="btn btn-primary">ver detalle del Producto</button>
-                        </Link>
+                <div style={{ margin: "40px auto", }}>
+                    <img src={chico} style={{ height: '60rem', width: '20rem' }} />
+                </div>
+                <div style={{ width: '55rem' }}>
+                    <div style={{ marginTop: "25px" }}>
+                        <h1>¡Bienvenidos!</h1>
                     </div>
-                ))}
+                    <div className="list-conteiner">
+                        {todosLosItems.map((objetos) => (
+                            <div key={objetos.id} style={{ margin: "auto auto", }} >
+                                <Item {...objetos} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div style={{ margin: "40px auto", }}>
+                    <img src={chica} style={{ height: '60rem', width: '20rem' }} />
+                </div>
             </>
         )
     }
 }
+
+

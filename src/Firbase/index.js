@@ -66,8 +66,8 @@ export class Firebase {
   static getAll(path, options) {
     const pathSegments = path.split('/');
     const ref = this.getCollection(...pathSegments);
-   
-    if (options!= null) {
+
+    if (options != null) {
       return getDocs(
         query(ref, where('lista', '==', options))
       );

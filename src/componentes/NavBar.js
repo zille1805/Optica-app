@@ -1,38 +1,28 @@
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Container from 'react-bootstrap/Container'
 import Carrito from './CartWidget.jsx'
 import logo from '..//componentes/img/logo.jpeg'
 import { Link } from "react-router-dom";
 
- const data1 = "Marcos"
- const data2 = "Lc"
-export default function NavBar(){
+const data1 = "Marcos"
+const data2 = "Lc"
+export default function NavBar() {
 
     return (
         <header>
-            <div>
-                <Link to="/">
-                    <div>
-                        <img class='logo' src={logo} style={{ height: '200px', width: '500px' }} />
-                    </div>
-                </Link>
-                <div><Carrito /></div>
-            </div>
-            <div>
-                <Navbar bg="primary" variant="dark">
-                    <Container>
-                        
-                        <Nav className="me-auto">
-                            <Navbar.Brand href="/">Home</Navbar.Brand>
-                            <Nav.Link href={`/ItemListConteiner/${data2}`}>Lentes de Contacto</Nav.Link>
-                            <Nav.Link href={`/ItemListConteiner/${data1}`}>Armazones</Nav.Link>
-                        </Nav>
-                    </Container>
-                </Navbar>
-            </div>
+            <Navbar bg="primary" variant="dark"  >
 
+                <Link to="/" style={{ marginLeft: "30px" }}>
+                    <img src={logo} style={{ height: '90px', width: '300px' }} />
+                </Link>
+                <Nav>
+                    <Link to={`/ItemListConteiner/${data2}`} className="nav-link" style={{ marginLeft: "50px" }}> <h3>Lentes de Contacto</h3> </Link>
+                    <Link to={`/ItemListConteiner/${data1}`} className="nav-link" style={{ marginLeft: "50px"  }}> <h3>Armazones</h3> </Link>
+                </Nav>
+
+                <Carrito />
+            </Navbar>
         </header>
     )
 }

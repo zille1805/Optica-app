@@ -5,26 +5,20 @@
 
 }
 
-
-header{
-  font-family: 'Open Sans', sans-serif;
+.app{
+  justify-content: center;
+  background-color: lightgoldenrodyellow;
   text-align: center;
-  margin-top: 60px;
-  margin-left: 60px;
-  margin-right: 60px;     
 }
-.boody-center{
+.list-conteiner{
+  justify-content: center;
   display: flex;
-  text-align: center;
-  margin-top: 60px;
-  margin-left: 100px;
-  margin-right: 100px;     
+  flex-wrap: wrap;
 }
-
-.boton-terminar{
-  display: none;
+.list-pie{
+  display: flex;
+  flex-wrap: wrap;
 }
-
 
 table, td {
 	font:100% Arial, Helvetica, sans-serif !important; 
@@ -45,7 +39,7 @@ th.down, tr.even th.down, tr.odd th.down{background:#bce774!important;}
 
 
 td.over, tr.even td.over, tr.odd td.over{background:#ecfbd4!important;}
-td.down, tr.even td.down, tr.odd td.down{background:#bce774!important;color:#fff!important;}
+td.down, tr.even td.down, tr.odd td.down{background:#93bb4e!important;color:#fff!important;}
 td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774!important;color:#555!important;}
 
 /* use this if you want to apply different styleing to empty table cells*/

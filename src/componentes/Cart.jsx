@@ -1,9 +1,10 @@
-import { useContext ,useState  } from 'react'
+import { useContext, useState } from 'react'
 import React from 'react';
-import  Cartcontext  from "./contex/Cartcontext";
+import Cartcontext from "./contex/Cartcontext";
 import { Link } from 'react-router-dom';
 import UserContex from './contex/UserContext';
 import Button from 'react-bootstrap/Button'
+import Lax from "./img/pngegg.png";
 
 
 export default function Carrito() {
@@ -11,19 +12,24 @@ export default function Carrito() {
   const [numero, setNumero] = useState();
   const [Email, setEmail] = useState();
   //TRAER DE CONTEXT
-  const { user,telefono, email, AgregarUsuario} = useContext(UserContex);
+  const { user, telefono, email, AgregarUsuario } = useContext(UserContex);
   const { cart, preciot, RemoveCart, RemoveItem, FinalizarCompra } = useContext(Cartcontext);
 
   return (
     <>
       {cart.length > 0 ?
 
-        <div>
-          <table >
+        <div style={{ padding: "30px", height: "auto" }}>
+          <div style={{ margin: "2px" }}>
+            <Link to="/">
+              <Button>Volver</Button>
+            </Link>
+          </div>
+          <table>
             <thead>
               <tr>
-                <th colspan="6">
-                  <h3><h1>Registro de Compra</h1></h3>
+                <th colSpan="6">
+                  <h1>Registro de Compra</h1>
                 </th>
               </tr>
               <tr>
@@ -36,48 +42,56 @@ export default function Carrito() {
             </thead>
             <tbody>
               {cart.map((item) =>
-                <tr>
-                  <th> <h3>{item.titulo}</h3></th>
-                  <th><h3>{item.precio}</h3></th>
-                  <th><h3>{item.cantidad}</h3></th>
-                  <th><h3>$ {item.subtotal} </h3></th>
-                  <th><Button className="btn btn-primary" onClick={() => RemoveItem(item.titulo)} >Eliminar</Button></th>
+                <tr key={item.id}>
+                  <th ><h3>{item.titulo}</h3></th>
+                  <th ><h3>{item.precio}</h3></th>
+                  <th ><h3>{item.cantidad}</h3></th>
+                  <th ><h3>$ {item.subtotal} </h3></th>
+                  <th >
+                    <Button className="btn btn-primary" onClick={() => RemoveItem(item.titulo)} >
+                      <img src={Lax} style={{ height: '40px', width: '40px' }} />
+                    </Button>
+                  </th>
                 </tr>
               )}
               <tr>
-                <th colspan="3"> <h3>Total:  </h3></th>
+                <th colSpan="3"> <h3>Total:  </h3></th>
                 <th><h3>$ {preciot}</h3></th>
-                <th></th>
+                <th><Button onClick={() => RemoveCart()}>Cancelar compra</Button></th>
               </tr>
             </tbody>
           </table>
-          <Button onClick={() => RemoveCart()}>Cancelar compra</Button>
-          <div>
+
+          <div style={{ margin: "20px auto" }}>
             {!user ?
               <form>
-                <div>
-                  <label>Nombre y Apellido</label>
-                  <input onChange={(ev) => setNombre(ev.target.value)} type="text" placeholder="Enter Nombre" />
+                <div style={{ margin: "20px auto" }}>
+                  <h3>Para finalizar la compra complete a continuacion: </h3>
+                  <label >Nombre y Apellido:  </label>
+                  <input onChange={(ev) => setNombre(ev.target.value)} type="text" placeholder="Ingrese el Nombre" />
                 </div>
-                <div>
-                  <label>Número de Telefono</label>
-                  <input onChange={(ev) => setNumero(ev.target.value)} type="text" placeholder="Enter Numero" />
+                <div style={{ margin: "20px auto" }}>
+                  <label >Número de Telefono:  </label>
+                  <input onChange={(ev) => setNumero(ev.target.value)} type="numero" placeholder="Ingrese el Numero" />
                 </div>
-                <div>
-                  <label>Email</label>
+                <div style={{ margin: "20px auto" }}>
+                  <label >Email:  </label>
                   <input onChange={(e) => { setEmail(e.target.value) }} type="mail" placeholder="Ingrese su mail" />
                 </div>
-                <Button onClick={() => AgregarUsuario(nombre, numero, Email)}>iniciar sesión</Button>
+                <Button onClick={() => AgregarUsuario(nombre, numero, Email)}>Registrar</Button>
               </form>
               :
-              <Button onClick={() => FinalizarCompra(cart, user,telefono, email)}>Finalizar Compra</Button>
+              <Button onClick={() => FinalizarCompra(cart, user, telefono, email)}>Finalizar Compra</Button>
             }
           </div>
         </div>
         :
-        <div >
-          <h4>No tienes productos seleccionados!!</h4>
-          <Link to="/"><Button>Volver al Inicio</Button></Link>
+        <div style={{ padding: "30px" }}>
+          <div style={{ margin: "30px" }}>
+            <h4>No tienes productos seleccionados!!</h4>
+            <Link to="/"><Button>Volver al Inicio</Button></Link>
+
+          </div>
         </div>
       }
     </>

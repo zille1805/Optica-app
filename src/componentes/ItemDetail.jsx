@@ -3,42 +3,42 @@ import { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from "react-router-dom"
 import ItemConter from './ItemCount'
-import  Cartcontext  from "./contex/Cartcontext";
+import Cartcontext from "./contex/Cartcontext";
 import Button from 'react-bootstrap/Button'
 
-export default function ItemDetail({titulo, Src, stock, precio,detail,cantidad, lista}) {
-    const [cantcomp, setCantComprar]=useState()
-    const [ isOn, setIsOn] = useState(false);
-    const {addItem} =useContext(Cartcontext);
-    
-    
+export default function ItemDetail({ titulo, Src, stock, precio, detail, cantidad, lista }) {
+    const [cantcomp, setCantComprar] = useState()
+    const [isOn, setIsOn] = useState(false);
+    const { addItem } = useContext(Cartcontext);
 
-    const onAdd=(count)=>{
+
+
+    const onAdd = (count) => {
         setCantComprar(count)
-    
-    }
-    const AgregarCarrito=()=>{
-        setIsOn(true);
-        addItem({titulo, cantidad, precio}, cantcomp);
 
     }
-  
-    
+    const AgregarCarrito = () => {
+        setIsOn(true);
+        addItem({ titulo, cantidad, precio }, cantcomp);
+
+    }
+
+
     return (
-        <div>
-            <div>
-                <Link to={`/ItemListConteiner/${lista}`} style={{ marginLeft: "10px" }}>
-                    <Button className="btn btn-primary">Volve</Button>
+        <div style={{ height: '700px' }}>
+            <div style={{ margin: "6px" }}>
+                <Link to={`/ItemListConteiner/${lista}`} style={{ marginLeft: "30px" }}>
+                    <Button className="btn btn-primary">Volver</Button>
                 </Link>
             </div>
-            <img src={Src} style={{ height: '400px', width: '450px' }} />
+            <img src={Src} style={{ height: '300px', width: '350px' }} />
             <h1>{titulo}</h1>
             <div>
-                <p>
+                <h5>
                     {detail}
-                </p>
+                </h5>
             </div>
-            <p>Precio: {precio}</p>
+            <h4>Precio: {precio}</h4>
 
             <div>
 
@@ -46,11 +46,11 @@ export default function ItemDetail({titulo, Src, stock, precio,detail,cantidad, 
                     {!isOn ?
                         <>
                             <ItemConter initialValue="1" stockValue={stock} onAdd={onAdd} />
-                            {cantcomp!=0 ? <Button Text="Agregar al carrito" Variant="primary" onClick={AgregarCarrito}>Agregar al carrito </Button>:<></>}
+                            {cantcomp != 0 ? <Button onClick={AgregarCarrito} style={{ margin: "2px" }}>Agregar al carrito </Button> : <></>}
                         </>
                         :
-                        <div id="boton-terminar">
-                            <Link to="/Cart"><Button className="btn btn-primary">Revisar mi Compra</Button></Link>
+                        <div style={{ margin: "2px" }}>
+                            <Link to="/Cart"><Button className="btn btn-primary" >Revisar mi Compra</Button></Link>
                         </div>
                     }
                 </div>

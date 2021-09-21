@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import {CartProvider} from "./componentes/contex/Cartcontext";
+import { CartProvider } from "./componentes/contex/Cartcontext";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from './componentes/NavBar.js';
@@ -9,36 +9,45 @@ import ItemDetailConteiner from './componentes/ItemDetailConteiner.jsx';
 import Cart from './componentes/Cart';
 import NotFound404 from './Pages/Error/404';
 import { UserProvider } from './componentes/contex/UserContext';
-
+import PieDePagina from "./componentes/PieDePagina.jsx";
 
 
 function App() {
-  
+
   return (
-    <header>
+    <>
       <UserProvider>
         <CartProvider>
           <BrowserRouter>
             <NavBar />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/ItemListConteiner/:data">
-                <ItemListConteiner />
-              </Route>
-              <Route exact path="/ItemList-detail/:data/:id">
-                <ItemDetailConteiner />
-              </Route>
-              <Route exact path="/Cart">
-                <Cart />
-              </Route>
-              <Route path="*" component={NotFound404} />
-            </Switch>
+            <div className="app">
+              <Switch>
+                <Route exact path="/">
+                  <div className="list-conteiner" >
+                    <Home />
+                  </div>
+                </Route>
+                <Route exact path="/ItemListConteiner/:data">
+                  <div className="list-conteiner" style={{ width: '55rem', margin: "auto auto" }}>
+                    <ItemListConteiner />
+                  </div>
+                </Route>
+                <Route exact path="/ItemList-detail/:data/:id">
+                  <div className="list-detail">
+                    <ItemDetailConteiner />
+                  </div>
+                </Route>
+                <Route exact path="/Cart">
+                  <Cart />
+                </Route>
+                <Route path="*" component={NotFound404} />
+              </Switch>
+              <PieDePagina />
+            </div>
           </BrowserRouter>
         </CartProvider>
       </UserProvider>
-    </header>
+    </>
   )
 }
 

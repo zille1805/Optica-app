@@ -2,6 +2,7 @@ import { addDoc, collection} from "@firebase/firestore";
 import { createContext, useContext, useState } from "react";
 import { db } from "../../Firbase";
 import UserContex from "./UserContext";
+import swal from "sweetalert";
 
 const Cartcontext = createContext({});
 
@@ -16,14 +17,14 @@ export const CartProvider = ({ children }) => {
     const itemRep=cart.find(item=>item.titulo===itemComprar.titulo);
     if (!itemRep){
         setCart([...cart,{titulo:itemComprar.titulo,subtotal:(itemComprar.precio*cantidad),cantidad:cantidad,precio:itemComprar.precio}]);
-        setUnidad(unidad+cantidad);
+        setUnidad(unidad-(-cantidad));
         setPrecioT(preciot+(itemComprar.precio*cantidad));
     }else{
       const carritoBorrador=cart.map((item)=>{
         if(item.titulo === itemComprar.titulo){
           item.cantidad=(item.cantidad-(-cantidad))//evita que me tome los numeros como cadena
           item.subtotal+=(item.precio*cantidad)
-          setUnidad(unidad+cantidad);
+          setUnidad(unidad-(-cantidad));
           setPrecioT(preciot+(item.precio*cantidad));
         }
         return(item)
@@ -35,6 +36,7 @@ export const CartProvider = ({ children }) => {
   const RemoveCart=()=>{
     setCart([])
     setPrecioT(0)
+    setUnidad(0)
   };
   const RemoveItem=(titulo)=>{
     cart.map((item)=>{
@@ -60,11 +62,15 @@ export const CartProvider = ({ children }) => {
       total: preciot
     };
 
-    await addDoc(ordenCollection, newOrder);
-    alert("complra Realizada")
+    const titulosDeCompra= cart.map((objeto)=>{
+      return (" " + objeto.cantidad+" unidad de "+objeto.titulo+", ")
+    })
+
+    const idDeOrden = await addDoc(ordenCollection, newOrder);
+    swal(`Compra Exitosa, id:${idDeOrden.id}`,`${nombre} usted compro:  ${titulosDeCompra} nos pondremos en contacto para la entrega`,"success")
     CerrarSesion()
     setCart([])
-    setUnidad()
+    setUnidad(0)
     
   }
   return (
