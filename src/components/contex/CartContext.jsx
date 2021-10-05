@@ -9,23 +9,23 @@ const Cartcontext = createContext({});
 export const CartProvider = ({ children }) => {
   // 2 ESTADO QUE QUIERO COMPARTIR
   const [cart, setCart] = useState([]);
-  const [unidad, setUnidad]= useState(0);
-  const [preciot, setPrecioT]=useState(0)
+  const [unidad, setUnit]= useState(0);
+  const [preciot, setPriseT]=useState(0)
   const { CerrarSesion }= useContext(UserContex);
 
   const addItem = (itemComprar, cantidad) => {
     const itemRep=cart.find(item=>item.titulo===itemComprar.titulo);
     if (!itemRep){
         setCart([...cart,{titulo:itemComprar.titulo,subtotal:(itemComprar.precio*cantidad),cantidad:cantidad,precio:itemComprar.precio}]);
-        setUnidad(unidad-(-cantidad));
-        setPrecioT(preciot+(itemComprar.precio*cantidad));
+        setUnit(unidad-(-cantidad));
+        setPriseT(preciot+(itemComprar.precio*cantidad));
     }else{
       const carritoBorrador=cart.map((item)=>{
         if(item.titulo === itemComprar.titulo){
           item.cantidad=(item.cantidad-(-cantidad))//evita que me tome los numeros como cadena
           item.subtotal+=(item.precio*cantidad)
-          setUnidad(unidad-(-cantidad));
-          setPrecioT(preciot+(item.precio*cantidad));
+          setUnit(unidad-(-cantidad));
+          setPriseT(preciot+(item.precio*cantidad));
         }
         return(item)
       })
@@ -35,14 +35,14 @@ export const CartProvider = ({ children }) => {
   };
   const RemoveCart=()=>{
     setCart([])
-    setPrecioT(0)
-    setUnidad(0)
+    setPriseT(0)
+    setUnit(0)
   };
   const RemoveItem=(titulo)=>{
     cart.map((item)=>{
       if (item.titulo===titulo){
-        setPrecioT(preciot-(item.subtotal))
-        setUnidad(unidad-item.cantidad);
+        setPriseT(preciot-(item.subtotal))
+        setUnit(unidad-item.cantidad);
       }
     })
     const carritoBorrador=cart.filter((itemnoborrar)=>itemnoborrar.titulo !==titulo)
@@ -70,7 +70,8 @@ export const CartProvider = ({ children }) => {
     swal(`Compra Exitosa, id:${idDeOrden.id}`,`${nombre} usted compro:  ${titulosDeCompra} nos pondremos en contacto para la entrega`,"success")
     CerrarSesion()
     setCart([])
-    setUnidad(0)
+    setUnit(0)
+    setPriseT(0)
     
   }
   return (

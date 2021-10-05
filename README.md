@@ -5,12 +5,12 @@ _Aplicacion creada por Walter Emmanuel Zille V. para un proyecto de CoderHouse._
 ##  Scripts Disponibles 
 _Instalacion de dependencias:_
 
-### `npm instal`
+### `npm install`
 
 Para instalar la app: 
                       1- Deve clonar el repositor de github, utilizando el comando "git clone" y segido el link mas actualizado      del proyecto.
                       2- Abrir en la consola la carpeta donde esta ubicado el proyecto.
-                      3- Y luego ejecutar el comando "npm install", este paso es importante para que instale todas las librerias utilizadas en el proyecto.
+                      3- Y luego ejecutar el comando "npm install", este paso es importante para que instale todas las dependencias utilizadas en el proyecto.
 
 
 ### `npm start`
