@@ -3,7 +3,7 @@ import { CartProvider } from "./components/contex/CartContext.jsx";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from './components/NavBar.jsx';
-import Home from "./components/Home";
+import Home from "./components/Home.jsx";
 import ItemListConteiner from './components/ItemListConteiner.jsx';
 import ItemDetailConteiner from './components/ItemDetailConteiner.jsx';
 import Cart from './components/Cart';
