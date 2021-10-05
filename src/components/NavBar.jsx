@@ -17,8 +17,8 @@ export default function NavBar() {
                     <img src={logo} style={{ height: '90px', width: '300px' }} />
                 </Link>
                 <Nav>
-                    <Link to={`/ItemListConteiner/${data2}`} className="nav-link" style={{ marginLeft: "50px" }}> <h3>Lentes de Contacto</h3> </Link>
-                    <Link to={`/ItemListConteiner/${data1}`} className="nav-link" style={{ marginLeft: "50px"  }}> <h3>Armazones</h3> </Link>
+                    <Link to={`/itemlistconteiner/${data2}`} className="nav-link" style={{ marginLeft: "50px" }}> <h3>Lentes de Contacto</h3> </Link>
+                    <Link to={`/itemlistconteiner/${data1}`} className="nav-link" style={{ marginLeft: "50px"  }}> <h3>Armazones</h3> </Link>
                 </Nav>
 
                 <Carrito />
