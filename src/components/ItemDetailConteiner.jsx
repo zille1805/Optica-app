@@ -2,27 +2,27 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { Firebase } from '../Firbase/index.js'
+import { Firebase } from '../Firbase/index.jsx'
 
 
 export default function ItemDetailConteiner() {
   const { id } = useParams();
-  const [cargar, setCargar] = useState(true);
-  const [itemObtenido, setItemObtenido] = useState([])
+  const [charge, setcharge] = useState(true);
+  const [itemO, setItemO] = useState([])
 
   useEffect(() => {
     Firebase.get(`objetos/${id}`).then(res => {
       const item = res.data();
-      setItemObtenido(
+      setItemO(
         {...item}
       );
-      setCargar(false)
+      setcharge(false)
     });
 
   }, [id])
 
 
-  if (cargar===true) {
+  if (charge===true) {
     return (
       <>
         <div>
@@ -30,12 +30,12 @@ export default function ItemDetailConteiner() {
         </div>
       </>
     )
-  } else if (cargar === false){
+  } else if (charge === false){
     return (
       <>
         <div style={{ padding: "20px" }}>
           <div style={{ border: "6px solid purple", margin: "5px" }}>
-          <ItemDetail {...itemObtenido}/>
+          <ItemDetail {...itemO}/>
           </div>
         </div>
       </>

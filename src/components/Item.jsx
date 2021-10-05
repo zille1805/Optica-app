@@ -20,7 +20,7 @@ export default function Item({ titulo, Src, stock, lista, id }) {
         <Card.Text>
           Stock disponible: {stock}
         </Card.Text>
-        <Link to={`/ItemList-detail/${lista}/${id}`}>
+        <Link to={`/itemlist-detail/${lista}/${id}`}>
           <Button >ver detalle del Producto</Button>
         </Link>
       </Card.Body>

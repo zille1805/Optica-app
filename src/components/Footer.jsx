@@ -1,8 +1,8 @@
-import pie from "../componentes/img/piedepajina.png";
-import red1 from "../componentes/img/red1.png";
-import red2 from "../componentes/img/red2.png";
-import red3 from "../componentes/img/red3.png";
-import map from "../componentes/img/map.png";
+import pie from "../components/img/piedepajina.png";
+import red1 from "../components/img/red1.png";
+import red2 from "../components/img/red2.png";
+import red3 from "../components/img/red3.png";
+import map from "../components/img/map.png";
 
 
 const PieDePajina = () => {

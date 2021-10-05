@@ -2,7 +2,7 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Carrito from './CartWidget.jsx'
-import logo from '..//componentes/img/logo.jpeg'
+import logo from '..//components/img/logo.jpeg'
 import { Link } from "react-router-dom";
 
 const data1 = "Marcos"

@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from "react-router-dom"
 import ItemConter from './ItemCount'
-import Cartcontext from "./contex/Cartcontext";
+import Cartcontext from "./contex/CartContext";
 import Button from 'react-bootstrap/Button'
 
 export default function ItemDetail({ titulo, Src, stock, precio, detail, cantidad, lista }) {
@@ -27,7 +27,7 @@ export default function ItemDetail({ titulo, Src, stock, precio, detail, cantida
     return (
         <div style={{ height: '700px' }}>
             <div style={{ margin: "6px" }}>
-                <Link to={`/ItemListConteiner/${lista}`} style={{ marginLeft: "30px" }}>
+                <Link to={`/itemlistconteiner/${lista}`} style={{ marginLeft: "30px" }}>
                     <Button className="btn btn-primary">Volver</Button>
                 </Link>
             </div>
@@ -50,7 +50,7 @@ export default function ItemDetail({ titulo, Src, stock, precio, detail, cantida
                         </>
                         :
                         <div style={{ margin: "2px" }}>
-                            <Link to="/Cart"><Button className="btn btn-primary" >Revisar mi Compra</Button></Link>
+                            <Link to="/cart"><Button className="btn btn-primary" >Revisar mi Compra</Button></Link>
                         </div>
                     }
                 </div>

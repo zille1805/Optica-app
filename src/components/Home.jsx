@@ -1,5 +1,5 @@
 import Item from "./Item";
-import { Firebase } from '../Firbase/index.js'
+import { Firebase } from '../Firbase/index.jsx'
 import { useEffect, useState } from "react";
 import chica from "./img/chica.png";
 import chico from "./img/chico.png";
@@ -9,7 +9,7 @@ import chico from "./img/chico.png";
 
 export default function Home() {
     const [todosLosItems, setTodosLosItems] = useState([]);
-    const [cargar, setCargar] = useState(true);
+    const [charge, setCharge] = useState(true);
     useEffect(() => {
         Firebase.getAll('objetos').then(docs => {
             const arr = [];
@@ -18,14 +18,14 @@ export default function Home() {
                 arr.push({ ...data, id: item.id });
             });
             setTodosLosItems(arr)
-            setCargar(false)
+            setCharge(false)
         });
 
     }, [])
 
-    if (cargar == true) {
+    if (charge == true) {
         return <h1>Esta cargando...</h1>;
-    } else if (cargar == false) {
+    } else if (charge == false) {
         return (
             <>
                 <div style={{ margin: "40px auto", }}>

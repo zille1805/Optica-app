@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import React from 'react';
-import Cartcontext from "./contex/Cartcontext";
+import Cartcontext from "./contex/CartContext";
 import { Link } from 'react-router-dom';
 import UserContex from './contex/UserContext';
 import Button from 'react-bootstrap/Button'
@@ -8,11 +8,11 @@ import Lax from "./img/pngegg.png";
 
 
 export default function Carrito() {
-  const [nombre, setNombre] = useState();
-  const [numero, setNumero] = useState();
+  const [name, setName] = useState();
+  const [number, setNumber] = useState();
   const [Email, setEmail] = useState();
   //TRAER DE CONTEXT
-  const { user, telefono, email, AgregarUsuario } = useContext(UserContex);
+  const { user, numberf, email, AgregarUsuario } = useContext(UserContex);
   const { cart, preciot, RemoveCart, RemoveItem, FinalizarCompra } = useContext(Cartcontext);
 
   return (
@@ -68,20 +68,20 @@ export default function Carrito() {
                 <div style={{ margin: "20px auto" }}>
                   <h3>Para finalizar la compra complete a continuacion: </h3>
                   <label >Nombre y Apellido:  </label>
-                  <input onChange={(ev) => setNombre(ev.target.value)} type="text" placeholder="Ingrese el Nombre" />
+                  <input onChange={(ev) => setName(ev.target.value)} type="text" placeholder="Ingrese el Nombre" />
                 </div>
                 <div style={{ margin: "20px auto" }}>
                   <label >Número de Telefono:  </label>
-                  <input onChange={(ev) => setNumero(ev.target.value)} type="numero" placeholder="Ingrese el Numero" />
+                  <input onChange={(ev) => setNumber(ev.target.value)} type="numero" placeholder="Ingrese el Numero" />
                 </div>
                 <div style={{ margin: "20px auto" }}>
                   <label >Email:  </label>
                   <input onChange={(e) => { setEmail(e.target.value) }} type="mail" placeholder="Ingrese su mail" />
                 </div>
-                <Button onClick={() => AgregarUsuario(nombre, numero, Email)}>Registrar</Button>
+                <Button onClick={() => AgregarUsuario(name, number, Email)}>Registrar</Button>
               </form>
               :
-              <Button onClick={() => FinalizarCompra(cart, user, telefono, email)}>Finalizar Compra</Button>
+              <Button onClick={() => FinalizarCompra(cart, user, numberf, email)}>Finalizar Compra</Button>
             }
           </div>
         </div>

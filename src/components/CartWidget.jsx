@@ -1,12 +1,12 @@
-import Carrito from '..//componentes/img/carrito.png'
+import Carrito from '..//components/img/carrito.png'
 import { Link } from "react-router-dom"
 import { useContext } from 'react'
-import Cartcontext from './contex/Cartcontext'
+import Cartcontext from './contex/CartContext'
 
 export default function Carrito1(){
     const { unidad } = useContext(Cartcontext)
     return (
-        <Link to="/Cart">
+        <Link to="/cart">
             <button style={{ backgroundColor: "yellow", marginLeft: "950px" }} >
                 <div>
                     { unidad>0 ?

@@ -5,21 +5,21 @@ const UserContex = createContext({});
 
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState();
-    const [telefono,setTelefono]=useState()
+    const [numberf,setNumberf]=useState()
     const [email,setEmail]=useState()
 
-    const AgregarUsuario = (nombre, tel, Email) =>{
-        setUser(nombre)
-        setTelefono(tel)
+    const AgregarUsuario = (name, number, Email) =>{
+        setUser(name)
+        setNumberf(number)
         setEmail(Email)
     }
     const CerrarSesion = () => {
         setUser()
-        setTelefono()
+        setNumberf()
         setEmail()
     }
     return(
-        <UserContex.Provider value={{user,telefono, email, AgregarUsuario, CerrarSesion}}>
+        <UserContex.Provider value={{user,numberf, email, AgregarUsuario, CerrarSesion}}>
             {children}
         </UserContex.Provider>
     )
